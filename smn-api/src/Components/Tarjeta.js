@@ -40,23 +40,23 @@ function Tarjeta({api}) {
 
                 <div className="contorno">
                     <p className="titulo">Temperatura</p>
-                    <p>{api.temp}</p>
+                    <p className="descrip">{api.temp}</p>
                 </div>
                 <div className="contorno">
                     <p className="titulo">Cielo</p>
-                    <p>{api.cielo}</p>
+                    <p className="descrip">{api.cielo}</p>
                 </div>
                 <div className="contorno">
                     <p className="titulo">Humedad</p>
-                    <p>{api.humedad}</p>
+                    <p className="descrip">{api.humedad}</p>
                 </div>
                 <div className="contorno">
                     <p className="titulo">Presión</p>
-                    <p>{api.presion}</p>
+                    <p className="descrip">{api.presion}</p>
                 </div>
                 <div className="contorno">
                     <p className="titulo">Viento</p>
-                    <p>{`${api.viento} km/h - ${api.vientoDir}` }</p>
+                    <p className="descrip">{`${api.viento}km/h - ${api.vientoDir}` }</p>
                 </div>
             </li>
     )
