@@ -15,7 +15,7 @@ function Main() {
 
     useEffect(() => {
         dispatch(levantarInfo())
-    }, []) //AMADA
+    }, [dispatch]) //AMADA
 
     return (
         <header className="principal">
