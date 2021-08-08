@@ -9,12 +9,12 @@ function Main() {
     
     const dispatch = useDispatch();
 
-    const levantarDatos = () =>{
+    /*const levantarDatos = () =>{
         dispatch(levantarInfo())
-    }
+    }*/
 
     useEffect(() => {
-        levantarDatos()
+        dispatch(levantarInfo())
     }, []) //AMADA
 
     return (
