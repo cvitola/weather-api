@@ -16,17 +16,17 @@ function Tarjeta({api}) {
             if(api.cielo.toLowerCase().includes('niev')){
                 return nieve;
             }
-            if (api.cielo.toLowerCase().includes('nublado')) {
-                return diaNublado;
-            } 
+            if(api.cielo.toLowerCase().includes('torm')){
+                return tormenta;
+            }
             if(api.cielo.toLowerCase().includes('cubierto')){
                 return cubierto;
             }
             if(api.cielo.toLowerCase().includes('despe')){
                 return diaDespejado;
             }
-            if(api.cielo.toLowerCase().includes('torm')){
-                return tormenta;
+            if (api.cielo.toLowerCase().includes('nublado')) {
+                return diaNublado;
             }else{
                 return pregunta;
             }
