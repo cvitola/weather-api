@@ -3,10 +3,6 @@
 .header{
   display: flex;
   gap: 30px;
-  background: #74ebd5;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   padding: 20px 20px;
   justify-content: center;
   align-items: center;
@@ -22,7 +18,7 @@ background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, F
 
 body{
   font-family: 'Poppins', sans-serif;
-  width: 40rem;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   background: #23074d;  /* fallback for old browsers */
@@ -47,16 +43,16 @@ body{
   flex-direction: column;
   align-items: center;
 }
+
 .tarjeta{
   background: #F7F8F8;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #ACBB78, #F7F8F8);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #ACBB78, #F7F8F8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
-  border-radius: 0.5rem;
+  border-radius: 10px;
   text-align: center;
-  box-shadow: 2px 2px 3px grey;
-  margin: 3rem;
-  padding: 1rem 1rem;
+  box-shadow: 1px 1px 2px grey;
+  margin: 20px 20px;
+  padding: 10px 10px;
 }
 .tarjeta:hover{
   box-shadow: 2px 2px 3px rgb(212, 114, 168);
@@ -127,13 +123,13 @@ h3{
   flex-direction: column;
 }
 
+.principal h2{
+  text-align: center;
+}
+
 @media screen and (max-width: 600px) {
-  body{
-      width: 20rem;
-  }
-  .principal{
-      flex-direction: column;
-  }
+
+
   #rejilla{
       flex-direction: column;
       align-items: center;
@@ -141,10 +137,13 @@ h3{
   #cabecera{
       flex-direction: column;
   }
+  
 }
 
 ul{
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 input{
