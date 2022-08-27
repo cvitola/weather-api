@@ -31,6 +31,7 @@ export default Footer;
 export const Container = styled.footer`
     background: #22272e;
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-top: auto;
 `;
