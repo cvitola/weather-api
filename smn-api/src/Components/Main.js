@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Form from './Form';
 import { levantarInfo } from '../Actions/apiActions';
 import { useDispatch  } from 'react-redux';
-
+import styled from 'styled-components';
 
 function Main() {
     
@@ -17,11 +17,22 @@ function Main() {
     }, [dispatch]) //AMADA
 
     return (
-        <header className="principal">
+        <Container>
             <h2>Buscar Ciudad</h2>
             <Form />
-        </header>
+        </Container>
     )
 }
 
 export default Main
+
+export const Container = styled.main`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: auto;
+    h2{
+        font-size: calc(10px + 1.5vw);
+    }
+`
