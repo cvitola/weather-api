@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
 import Tarjeta from './Tarjeta';
+import styled from 'styled-components';
 
 function Form() {
 
@@ -24,9 +25,9 @@ function Form() {
                 onChange={handlePress}/>
             <ul>
                 {
-                    nuevito?.map((valor) => (
+                    nuevito.length>0 ? nuevito?.map((valor) => (
                         <Tarjeta api={valor} key={valor.id}/>
-                        ))                        
+                        )) : <Info>Nada por aquí ... ☝🏼 </Info>                       
                 }
             </ul>
         </form>
@@ -34,3 +35,10 @@ function Form() {
 }
 
 export default Form
+
+export const Info = styled.p`
+    padding: 10px;
+    margin: 10px;
+    font-size: calc(12px + 1.5vh);
+    color: #22272e;
+    `;

@@ -33,6 +33,6 @@ export const Container = styled.main`
     text-align: center;
     margin-top: auto;
     h2{
-        font-size: calc(10px + 1.5vw);
+        font-size: calc(18px + 1.5vw);
     }
 `

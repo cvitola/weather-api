@@ -19,14 +19,16 @@ export const Container = styled.header`
     justify-content: center;
     align-items: center;
     padding: 20px 20px;
-
+    background: #22272e;
+    color: #FAFAFA;
     img{
         height: 60px;
         width: 60px;
         box-shadow: 1px 1px 1px grey;
+        border-radius: 50%;
     }
 
     h1{
-        font-size: calc(12px + 1.5vw);
+        font-size: calc(22px + 1.5vw);
     }
 `;

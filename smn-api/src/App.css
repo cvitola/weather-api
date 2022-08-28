@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
-
 body{
   font-family: 'Poppins', sans-serif;
   background-color: #FAFAFA;
@@ -24,16 +22,6 @@ body{
   align-items: center;
 }
 
-.tarjeta{
-  background: #F7F8F8;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #ACBB78, #F7F8F8);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ACBB78, #F7F8F8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 1px 1px 2px grey;
-  margin: 20px 20px;
-  padding: 10px 10px;
-}
 .tarjeta:hover{
   box-shadow: 2px 2px 3px rgb(212, 114, 168);
 }
@@ -54,29 +42,6 @@ body{
 .avatar-grande{
   width: 8rem;
   height: 8rem;
-}
-p{
-  
-  padding: 0;
-  margin: 0;
-}
-h2{
-  margin: 0;
-  font-size: 26px;
-}
-h3{
-  margin: 0;
-  font-size: 18px;
-}
-.tarjeta .imagen{
-  font-size: 3rem;
-  
-}
-.contorno{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;;
 }
 
 #busca{

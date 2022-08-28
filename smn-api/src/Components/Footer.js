@@ -38,7 +38,6 @@ export const Container = styled.footer`
 export const Menu = styled.ul`
     padding: 10px;
     margin:10px;
-    height: 100%;
     display:flex;
     justify-content: center;
     list-style: none;
@@ -48,10 +47,7 @@ export const MenuItem = styled.li`
     justify-content: center;
     align-items:center;
     color: #FAFAFA;
-    height: 100%;
     padding: 0.5rem 2.5rem;
-    font-size: 1rem;
-    font-weight: 300;
     cursor: pointer;
     transition: 0.5s all ease;
 svg{
@@ -63,8 +59,8 @@ svg{
     transition: 0.5s all ease;
 }
 @media screen and (max-width: 960px){
-    padding: 10px;
-    margin: 10px;
+    padding: 5px;
+    margin: 5px;
 }
 `;
 

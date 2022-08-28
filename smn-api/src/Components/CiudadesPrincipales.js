@@ -71,6 +71,7 @@ export const Container = styled.marquee`
     gap: 10px;
     justify-content: space-evenly;
     width: 100%;
+    background: #fffbef;
 `;
 
 export const Envoltorio = styled.div`
