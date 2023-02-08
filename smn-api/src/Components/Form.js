@@ -1,35 +1,62 @@
 import React, {useState} from 'react';
-import {useSelector} from 'react-redux';
+
+import dataSet from'../departamentos.json';
 import Tarjeta from './Tarjeta';
+import Next from './Next';
 import styled from 'styled-components';
+import { obtenerClimaDe } from '../Actions/apiActions';
 
 function Form() {
 
    // const dispatch = useDispatch();
     const [inputSearch, setInputSearch] = useState("")
-    const datos = useSelector(state => state.datosAPI)
-    const [nuevito, setNuevito] = useState([]);
+    const [weather, setWeather] = useState("");
+    const [proximos, setProximos] = useState([]);
+    //const datos = useSelector(state => state.datosAPI) por ahora no...
+    const [resul, setResul] = useState([]);
     const handlePress = (e) =>{
         setInputSearch(e.target.value)
-        setNuevito(datos.filter( valor => valor.ciudad.toUpperCase().includes(inputSearch.toUpperCase())))
+        setResul(dataSet.departamentos.filter( valor => valor.nombre.toUpperCase().includes(inputSearch.toUpperCase())))
+    }
+
+    const obtenerDatos = async (valor) => {
+        try {
+            setResul([]);
+            const resp =  await obtenerClimaDe(valor.centroide.lat, valor.centroide.lon);
+            setWeather(resp);
+        } catch (error) {
+            alert(error)
+        }
+        
     }
     return (
         <form 
             action="" 
             className="busqueda">
-            <input 
+            <Input 
                 type="search" 
                 id="input-search" 
                 placeholder="Escribí una ciudad..." 
                 className="input-search"
                 onChange={handlePress}/>
-            <ul>
+            <Display>
                 {
-                    nuevito.length>0 ? nuevito?.map((valor) => (
-                        <Tarjeta api={valor} key={valor.id}/>
-                        )) : <Info>Nada por aquí ... ☝🏼 </Info>                       
+                    resul.length>0 || weather ? resul?.map((valor) => (
+                        <li api={valor} key={valor.id} onClick={() => obtenerDatos(valor)} >{`${valor.nombre} - ${valor.provincia.nombre}`}</li>
+                        )) : <Info>Nada por aquí ... ☝🏼 </Info>                   
                 }
-            </ul>
+            </Display>
+            {
+                weather ? <Tarjeta api={weather} proximos={proximos} setProximos={setProximos}/> : ""
+            }
+            <Detalles>
+                {
+                    proximos?.map((valor) => (
+                        <Next data={valor} />
+                    ))
+                }
+            </Detalles>
+           
         </form>
     )
 }
@@ -42,3 +69,32 @@ export const Info = styled.p`
     font-size: calc(12px + 1.5vh);
     color: #22272e;
     `;
+
+export const Display = styled.ul`
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    li{
+        background: #EAEAEA;
+        cursor: pointer;
+        margin-top: 2px;
+        margin-bottom: 5px;
+        padding: 5px;
+    }`;
+
+export const Input = styled.input`
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  border-style: none;
+  box-shadow: 2px 2px 2px silver;
+  font-size: 20px;`;
+
+export const Detalles = styled.ul`
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 15px;
+    padding: 15px;`;

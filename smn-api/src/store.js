@@ -5,7 +5,8 @@ import thunk from 'redux-thunk';
 
 
 const reducer = combineReducers({ datosAPI: ApiReducer },
-                                {filtrados: ApiReducer}
+                                {filtrados: ApiReducer},
+                                {apiweather: ApiReducer}
                                 );
 
 

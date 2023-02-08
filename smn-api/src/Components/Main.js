@@ -6,15 +6,11 @@ import styled from 'styled-components';
 
 function Main() {
     
-    const dispatch = useDispatch();
 
-    /*const levantarDatos = () =>{
-        dispatch(levantarInfo())
-    }*/
 
-    useEffect(() => {
-        dispatch(levantarInfo())
-    }, [dispatch]) //AMADA
+    /*useEffect(() => {
+        dispatch(levantarInfo());
+    }, [dispatch]) //AMADA*/
 
     return (
         <Container>

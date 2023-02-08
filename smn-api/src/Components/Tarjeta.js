@@ -1,64 +1,55 @@
-import React from 'react'
-import diaDespejado from '../img/dia-despejado.png';
-import cubierto from '../img/cubierto.png';
-import diaNublado from '../img/dia-nublado.png';
-import lluvioso from '../img/lluvioso.png';
-import nieve from '../img/snowing.png';
-import tormenta from '../img/tormenta.png';
-import pregunta from '../img/pregunta.png';
+import React , {useState} from 'react'
 import styled from 'styled-components';
+import { WiHorizonAlt, WiHorizon, WiThermometer, WiHumidity, WiBarometer , WiStrongWind} from "react-icons/wi";
 
-function Tarjeta({api}) {
+function Tarjeta({api, proximos, setProximos}) {
+    
 
-    const determinarIcono = () =>{
-            if(api.cielo.toLowerCase().includes('lluv')){
-                return lluvioso;
-            }
-            if(api.cielo.toLowerCase().includes('niev')){
-                return nieve;
-            }
-            if(api.cielo.toLowerCase().includes('torm')){
-                return tormenta;
-            }
-            if(api.cielo.toLowerCase().includes('cubierto')){
-                return cubierto;
-            }
-            if(api.cielo.toLowerCase().includes('despe')){
-                return diaDespejado;
-            }
-            if (api.cielo.toLowerCase().includes('nublado')) {
-                return diaNublado;
-            }else{
-                return pregunta;
-            }
-        
+    const obtenerIcono = (source) => {
+        return `http://openweathermap.org/img/wn/${source}@2x.png`
     }
+
+    const proximosDias = (e) => {
+        e.preventDefault();
+        api.list.shift();
+        setProximos(api.list);
+    }
+   
     return (
             <Container className="tarjeta">
-                <h2>{api.prov}</h2>
-                <h3>{api.ciudad}</h3>
-                <img src={determinarIcono("")} alt="mh" className="avatar"/>
+                <h3>{api.city.name}</h3>
+                <h5>Predicción</h5>
+                {api.list[0].dt_txt}
+                <img src={obtenerIcono(api.list[0].weather[0].icon)} alt="icon" />
+                                
+                <Contorno>
+                    <WiThermometer />
+                    <p>{`${(parseFloat(api.list[0]?.main.temp) - 275.15.toFixed(2)).toFixed(2)} °C`}</p>
+                </Contorno>
 
                 <Contorno>
-                    <h4>Temperatura</h4>
-                    <p>{api.temp}</p>
+                    <WiHumidity/>
+                    <p>{api.list[0]?.main.humidity}</p>
                 </Contorno>
                 <Contorno>
-                    <h4>Cielo</h4>
-                    <p>{api.cielo}</p>
+                    <WiBarometer />
+                    <p>{api.list[0]?.main.pressure}</p>
                 </Contorno>
                 <Contorno>
-                    <h4>Humedad</h4>
-                    <p>{api.humedad}</p>
+                    <WiStrongWind />
+                    <p>{api.list[0]?.wind.speed }</p>
                 </Contorno>
                 <Contorno>
-                    <h4>Presión</h4>
-                    <p>{api.presion}</p>
+                    <WiHorizonAlt />
+                    <i>{new Date(api.city.sunrise).toLocaleTimeString("en-us")}</i>
                 </Contorno>
-                <Contorno>
-                    <h4>Viento</h4>
-                    <p>{`${api.viento}km/h - ${api.vientoDir}` }</p>
-                </Contorno>
+                 
+                 <Contorno>
+                    <WiHorizon />
+                    <i>{new Date(api.city.sunset).toLocaleTimeString("en-us")} </i> <strong>fake!</strong>
+                 </Contorno>
+
+                <button onClick={proximosDias}>Próximos días</button>
             </Container>
     )
 }
@@ -66,14 +57,27 @@ function Tarjeta({api}) {
 export default Tarjeta;
 
 export const Container = styled.li`
-  background: #fffbef;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 1px 1px 2px grey;
-  margin: 20px 20px;
-  padding: 10px 10px;
-  max-width: 375px;
-
+    background: rgb(19, 86, 77, 0.25);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    list-style:none;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 1px 1px 2px grey;
+    margin: 20px 20px;
+    padding: 10px 10px;
+    max-width: 375px;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
+;
+    button{
+        border: none;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+    }
   h2{
     font-size: calc(14px + 1.5vw);
   }
@@ -81,19 +85,21 @@ export const Container = styled.li`
     font-size: calc(10px + 1.5vw);
   }
   img{
-
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
   }`;
 
   export const Contorno = styled.div`
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    margin: 5px;
+
     gap: 20px;
     h4{
         font-size: calc(8px + 1.5vw);
     }
     p{
         font-size: calc(6px + 1.5vw);
+    }
+    svg{
+        font-size: 36px;
     }`;
