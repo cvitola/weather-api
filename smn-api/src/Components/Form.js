@@ -52,7 +52,7 @@ function Form() {
             <Detalles>
                 {
                     proximos?.map((valor) => (
-                        <Next data={valor} />
+                        <Next data={valor} actual={false}/>
                     ))
                 }
             </Detalles>

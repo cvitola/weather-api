@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { WiHorizonAlt, WiHorizon, WiThermometer, WiHumidity, WiBarometer , WiStrongWind, WiTime8} from "react-icons/wi";
 import { FaCalendarAlt } from 'react-icons/fa';
 
-const Next = ({data}) => {
-
+const Next = ({data, actual}) => {
+    console.log(data)
     const obtenerIcono = (source) => {
         return `http://openweathermap.org/img/wn/${source}@2x.png`
     }
@@ -13,14 +13,23 @@ const Next = ({data}) => {
     <Card>
         <img src={obtenerIcono(data.weather[0].icon)} alt="icon" />
         <div>
-            <Item>
-            <FaCalendarAlt />
-                <i>{(data.dt_txt).split(" ")[0]}</i>
-            </Item>
-            <Item>
-            <WiTime8 />
-                <i>{(data.dt_txt).split(" ")[1]}</i>
-            </Item>
+            {
+                actual ? 
+                    "" 
+                :
+                <>
+                    <Item>
+                        <FaCalendarAlt />
+                        <i>{(data.dt_txt).split(" ")[0]}</i>
+                    </Item>
+                    <Item>
+                        <WiTime8 />
+                        <i>{(data.dt_txt).split(" ")[1]}</i>
+                    </Item>
+                </>
+                
+            }
+            
         <Item>
             <WiThermometer />
             <p>{`${(parseFloat(data.main.temp) - 275.15.toFixed(2)).toFixed(2)} °C`}</p>
@@ -44,12 +53,15 @@ const Next = ({data}) => {
 export default Next;
 
 export const Card = styled.div`
-    background: gray;
+    background-color: rgb(30 41 59/var(--tw-bg-opacity));
+    --tw-bg-opacity: 1;
+    border-radius: 0.5rem;
+    color: #FAFAFA;
     padding: 5px 20px 5px 20px;
     margin: 5px;
     display: flex;
     img{
-        width: 20%;
+        width: ${actual => actual ? '45%' : '20%'}
         margin: auto;
     }
     `;

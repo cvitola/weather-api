@@ -5,11 +5,13 @@ import CiudadesPrincipales from './Components/CiudadesPrincipales';
 import Header from './Components/Header';
 import Main from './Components/Main';
 import styled from 'styled-components';
+import Geolocalizacion from './Components/Geolocalizacion';
 
 function App() {
   return (
     <First>
       <Header />
+      <Geolocalizacion />
       <CiudadesPrincipales />
       <Main />
       <Footer />

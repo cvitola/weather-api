@@ -32,6 +32,16 @@ export const obtenerClimaDe = async (lat,lon) => {
 
 }
 
+export const obtenerClimaActualDe = async(lat,lon) => {
+    try {
+        const clima = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=306395a7a86009e9ee4f4eba4504ee8f`);
+        const data = await clima.json();
+        return data;
+    } catch (error) {
+        return error;
+    }
+}
+
 export const filtrar = (dato) => ({
     type: 'FILTRAR_API',
     payload: dato,
