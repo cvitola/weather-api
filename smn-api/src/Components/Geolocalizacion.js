@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import { obtenerClimaActualDe  } from '../Actions/apiActions';
 import Next from './Next';
+import {FaGlobeAmericas} from 'react-icons/fa';
 
 const Geolocalizacion = () => {
 
@@ -28,7 +29,11 @@ useEffect( () => {
 
   return (
     <Article>
-        <h2>Geolocalización en: {weather?.name}</h2>
+        <div>
+            <h2><FaGlobeAmericas /></h2>
+            <p>{weather?.name}</p>
+        </div>
+
         {
             weather ? <Next data={weather} actual={true}/> :"<p>cargando...</p>"
         }
@@ -40,12 +45,22 @@ export default Geolocalizacion
 
 export const Article = styled.article`
     display: flex;
-    border-radius: 0.5rem;
-    padding: 0 10px 0 10px;
-    margin: 0 10px 0 10px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     --tw-bg-opacity: 1;
     background-color: rgb(15 23 42/var(--tw-bg-opacity));
+    div{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        color: #FAFAFA;
+        margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    justify-content: center;
     
-    h2{
-        color: white;
-    };`
+    }
+
+
+;`

@@ -37,7 +37,7 @@ function Tarjeta({api, proximos, setProximos}) {
                 </Contorno>
                 <Contorno>
                     <WiStrongWind />
-                    <p>{api.list[0]?.wind.speed }</p>
+                    <p>{parseFloat(api.list[0]?.wind.speed).toFixed(2) } km/h</p>
                 </Contorno>
                 <Contorno>
                     <WiHorizonAlt />
@@ -49,7 +49,7 @@ function Tarjeta({api, proximos, setProximos}) {
                     <i>{new Date(api.city.sunset).toLocaleTimeString("en-us")} </i> <strong>fake!</strong>
                  </Contorno>
 
-                <button onClick={proximosDias}>Próximos días</button>
+                <button onClick={proximosDias}>Próximas horas</button>
             </Container>
     )
 }

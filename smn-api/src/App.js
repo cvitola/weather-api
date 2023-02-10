@@ -12,7 +12,6 @@ function App() {
     <First>
       <Header />
       <Geolocalizacion />
-      <CiudadesPrincipales />
       <Main />
       <Footer />
     </First>

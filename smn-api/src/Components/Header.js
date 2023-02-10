@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <Container>
         <img src={logo} alt="img_logo" />
-        <h1>Clima en vivo 2.0 🌤 </h1>
+        <h1>Clima web 2.0 🌤 </h1>
     </Container>
   )
 }
@@ -24,8 +24,6 @@ export const Container = styled.header`
     img{
         height: 60px;
         width: 60px;
-        box-shadow: 1px 1px 1px grey;
-        border-radius: 50%;
     }
 
     h1{

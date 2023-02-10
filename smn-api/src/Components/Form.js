@@ -86,7 +86,7 @@ export const Display = styled.ul`
 export const Input = styled.input`
   padding: 10px;
   border-radius: 5px;
-  width: 100%;
+  width: 90%;
   border-style: none;
   box-shadow: 2px 2px 2px silver;
   font-size: 20px;`;
@@ -94,7 +94,7 @@ export const Input = styled.input`
 export const Detalles = styled.ul`
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 5px;
     flex-wrap: wrap;
-    margin: 15px;
-    padding: 15px;`;
+    margin: 5px;
+    padding: 5px;`;

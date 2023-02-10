@@ -23,6 +23,9 @@ const Footer = () => {
             </MenuItem>
         </Menu>
         <TitleFoot>© 2022, hecho con 💗 por VittoSolution.</TitleFoot>
+        <TitleFoot>
+            <img src={"https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png"} alt="logo" />
+        </TitleFoot>
     </Container>
 }
 
@@ -72,4 +75,9 @@ export const TitleFoot = styled.h2`
     font-size: 12px;
     font-style: italic;
     font-weight: 200;
+
+    img{
+        width: 40%;
+        
+    }
 `;

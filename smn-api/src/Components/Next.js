@@ -41,7 +41,7 @@ const Next = ({data, actual}) => {
         </Item>
         <Item>
             <WiStrongWind />
-            <p>{data.wind.speed }</p>
+            <p>{parseFloat(data.wind.speed).toFixed(2) } km/h</p>
         </Item>   
         </div>
 
@@ -57,12 +57,15 @@ export const Card = styled.div`
     --tw-bg-opacity: 1;
     border-radius: 0.5rem;
     color: #FAFAFA;
-    padding: 5px 20px 5px 20px;
-    margin: 5px;
+    padding: 5px;
     display: flex;
     img{
-        width: ${actual => actual ? '45%' : '20%'}
+        width: ${actual => actual ? "10%" : "20%"};
         margin: auto;
+    }
+    div{
+        display: flex;
+        gap: 5px;
     }
     `;
 
@@ -74,3 +77,4 @@ export const Item = styled.div`
         font-size: 20px;
     }
 `;
+
